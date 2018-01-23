@@ -1,0 +1,99 @@
+.register-panel {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.register-panel .ui-g-12 {
+      padding: 15px 100px; 
+}
+.register-panel .ui-g-12.logo-container {
+        padding: 50px 50px 25px 50px;
+        border-bottom: 8px solid #dee4e9;
+        margin-bottom: 20px; 
+        text-align: center;
+}
+.register-panel .ui-g-12.logo-container .logo {
+          height: 50px; 
+}
+.register-panel .ui-g-12.logo-container .login-icon {
+          float: right;
+          height: 50px;
+}
+.register-panel .ui-g-12.logo-container h1 {
+          color: #7d8286;
+          font-size: 53px;
+          font-weight: 300;
+          margin-top: 12px;
+          margin-bottom: 0; 
+          display:inline;
+}
+.register-panel div.back {
+     display: inline-block;
+    line-height: 65px;
+    vertical-align: top;
+}
+
+.register-panel div.headertext{
+    text-align:left;
+
+}
+.register-panel .ui-g-12.chkbox-container .ui-g-12 {
+        text-align: center;
+        padding: 0;
+}
+.register-panel .input-wrapper {
+      position: relative;
+}
+      .register-panel .input-wrapper i {
+        position: absolute;
+        width: 14px;
+        right: 8px; 
+        font-size: 20px;
+
+      }
+        .register-panel .input-wrapper .user-icon {
+          top: 6px; }
+       .register-panel .input-wrapper .lock-icon {
+          top: 5px; }
+       .register-panel .input-wrapper .envelope-icon {
+          top: 5px; 
+          right: 11px;
+       }
+      .register-panel .input-wrapper input {
+        width: 100%;
+        padding: .385em;
+        padding-right: 22px; 
+      }
+    .register-panel a {
+      color: #757575;
+      -moz-transition: color 0.3s;
+      -o-transition: color 0.3s;
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s; }
+
+     .register-panel div.back a{         
+        display: block;
+     }
+      .register-panel a:hover {
+        color: #3984b8; }
+    .register-panel label {
+      display: block;
+      margin-bottom: 8px; }
+    .register-panel button {
+      padding: 0;
+      width: 100%;
+      display: block;
+      margin-bottom: 20px; }
+
+
+.register-panel .ui-g-12 .has-error .error-msg { color:red; font-size: 15px; font-family:Calibri }
+.register-panel .ui-g-12 .has-error i.fa {color:red}
+
+@media (max-width: 640px) {
+  .register-panel {
+    margin-top: 100px;
+    width: 100%; }
+    .register-panel .ui-g-12 {
+      padding: 15px 50px; }
+    }
+

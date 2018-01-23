@@ -1,0 +1,103 @@
+<div class="register-panel ui-fluid">
+    <div class="ui-g">
+        <div class="ui-g-12 logo-container">
+            <div class="back ui-md-3 ui-g-3">
+                <a routerLink="/login">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="headertext ui-md-9 ui-g-9">
+                <h1>Register</h1>
+            </div>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+            <div class="ui-g-12">
+                <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('firstName').errors && (registerForm.get('firstName').touched || registerForm.get('firstName').dirty)}">
+                    <input id="firstNameId" type="text" formControlName="firstName" validate-onblur placeholder="First Name" class="ui-inputtext ui-widget">
+                    <div class="error-msg" *ngIf="registerForm.get('firstName').errors && (registerForm.get('firstName').touched || registerForm.get('firstName').dirty)">
+                        <span *ngIf="registerForm.get('firstName').errors.required">
+                            * Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('lastName').errors && (registerForm.get('lastName').touched || registerForm.get('lastName').dirty)}">
+                    <input type="text" formControlName="lastName" id="lastNameId" placeholder="Last Name" class="ui-inputtext ui-widget">
+                    <div class="error-msg" *ngIf="registerForm.get('lastName').errors && (registerForm.get('lastName').touched || registerForm.get('lastName').dirty)">
+                        <span *ngIf="registerForm.get('lastName').errors.required">
+                            * Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('email').errors && (registerForm.get('email').touched || registerForm.get('email').dirty)}">
+                    <input type="text" formControlName="email" id="email" placeholder="Email" validate-onblur class="ui-inputtext ui-widget">
+                    <i class="fa fa-envelope envelope-icon" aria-hidden="true"></i>
+                    <div class="error-msg" *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+                        <span *ngIf="registerForm.get('email').errors.required">
+                            * Required
+                        </span>
+                        <span *ngIf="registerForm.get('email').errors.emailDomain">
+                            * Email must be on the codecraft.tv domain
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('username')?.errors && (registerForm.get('username')?.touched || registerForm.get('username')?.dirty)}">
+                    <input type="text" formControlName="username" id="username" placeholder="Username" validate-onblur class="ui-inputtext ui-widget">
+                    <i class="fa fa-user user-icon" aria-hidden="true"></i>
+                    <div class="error-msg" *ngIf="registerForm.get('username')?.errors && (registerForm.get('username')?.touched || registerForm.get('username')?.dirty)">
+                        <span *ngIf="registerForm.get('username').errors.required">
+                            * Required
+                        </span>
+                        <span *ngIf="registerForm.get('username').errors.pattern">
+                            * Username must can only include underscores, dashes and periods 
+                        </span>
+                        <span *ngIf="registerForm.get('username').errors.usernameTaken">
+                            * Username is taken
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div formGroupName="passwordGroup" [ngClass]="{'has-error': registerForm.get('passwordGroup')?.errors}">
+                <div class="ui-g-12">
+                    <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('passwordGroup.password').errors && (registerForm.get('passwordGroup.password').touched || registerForm.get('passwordGroup.password').dirty)}">
+                        <input type="password" id="password" formControlName="password" placeholder="Password" validate-onblur class="ui-inputtext ui-widget">
+                        <i class="fa fa-lock lock-icon" aria-hidden="true"></i>
+                        <div class="error-msg" *ngIf="registerForm.get('passwordGroup.password').errors && (registerForm.get('passwordGroup.password').touched || registerForm.get('passwordGroup.password').dirty)">
+                            <span *ngIf="registerForm.get('passwordGroup.password').errors.required">
+                                * Required
+                            </span>
+                            <span *ngIf="registerForm.get('passwordGroup.password').errors.minlength">
+                                * Password must be minimum of 6 characters
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12">
+                    <div class="input-wrapper" [ngClass]="{'has-error': registerForm.get('passwordGroup.confirmPassword').errors && (registerForm.get('passwordGroup.confirmPassword').touched || registerForm.get('passwordGroup.confirmPassword').dirty)}">
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" validate-onblur class="ui-inputtext ui-widget">
+                        <i class="fa fa-lock lock-icon" aria-hidden="true"></i>
+                        <div class="error-msg" *ngIf="registerForm.get('passwordGroup.confirmPassword').errors && (registerForm.get('passwordGroup.confirmPassword')?.touched || registerForm.get('passwordGroup.confirmPassword')?.dirty)">
+                            <span *ngIf="registerForm.get('passwordGroup.confirmPassword').errors?.required">
+                                * Required
+                            </span>
+                            <span *ngIf="registerForm.get('passwordGroup.confirmPassword').errors?.match">
+                                * Passwords must match
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 button-container">
+                <button [disabled]="!registerForm.valid" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only blue-btn raised-btn">
+                    <span class="ui-button-text ui-c">Register</span>
+                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

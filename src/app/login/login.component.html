@@ -1,0 +1,39 @@
+<div class="login-panel ui-fluid">
+    <div class="ui-g">
+        <div class="ui-g-12 logo-container">
+            <!-- <img src="../layout/images/logo-gray.png" class="logo"> -->
+            <!-- <img src="../layout/images/login/icon-login.png" class="login-icon"> -->
+            <h1>Login</h1>
+        </div>
+        <form #f="ngForm" (ngSubmit)="login(f)" novalidate>
+            <div class="ui-g-12">
+                <div class="input-wrapper">
+                    <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" placeholder="Username" class="ui-inputtext ui-widget" required>
+                    <i class="fa fa-user user-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="input-wrapper">
+                    <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" class="ui-inputtext ui-widget" required>
+                    <i class="fa fa-lock lock-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="ui-g-12 chkbox-container">
+                <a href="/forgotPassword">Forgot password?</a>
+            </div>
+            <div class="ui-g-12 button-container">
+                <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only blue-btn raised-btn">
+                    <span class="ui-button-text ui-c">Sign In</span>
+                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+            </div>
+        </form>
+        <div class="ui-g-12 button-container">
+         <a routerLink="/register">
+            <button class="ui-button-info ui-widget ui-state-default ui-corner-all ui-button-text-only raised-btn">
+                 <span class="ui-button-text ui-c">Register</span>
+             </button>
+          </a>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.login-body {
+        background: url("./assets/img/bg-login.png");
+        background-size: cover;
+        height: auto;
+}
+
+body {
+  margin: 0px;
+  font-size: 1em !important;
+}
